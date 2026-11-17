@@ -19,10 +19,10 @@ on:
         required: false
         default: false
         type: boolean
-    stock_list:
-      description: '股票代码（留空则用仓库变量 STOCK_LIST）'
-      required: false
-      default: ''
+      stock_list:
+        description: '股票代码（留空则用仓库变量 STOCK_LIST）'
+          required: false
+        default: ''
       type: string
 
 # 并发控制：同一时间只运行一个分析任务
