@@ -21,7 +21,7 @@ on:
         type: boolean
       stock_list:
         description: '股票代码（留空则用仓库变量 STOCK_LIST）'
-          required: false
+      required: false
         default: ''
         type: string
 
