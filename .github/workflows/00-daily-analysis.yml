@@ -19,6 +19,11 @@ on:
         required: false
         default: false
         type: boolean
+    stock_list:
+      description: '股票代码（留空则用仓库变量 STOCK_LIST）'
+      required: false
+      default: ''
+      type: string
 
 # 并发控制：同一时间只运行一个分析任务
 concurrency:
@@ -420,7 +425,7 @@ jobs:
           # 自选股配置
           # ==========================================
           # 避免直接写入 STOCK_LIST，保留同名 Environment variables 的 runner 环境值。
-          STOCK_LIST_CONFIG: ${{ vars.STOCK_LIST || secrets.STOCK_LIST }}
+          STOCK_LIST_CONFIG: ${{ inputs.stock_list || vars.STOCK_LIST || secrets.STOCK_LIST }}
           MARKET_REVIEW_REGION: ${{ vars.MARKET_REVIEW_REGION || secrets.MARKET_REVIEW_REGION || 'cn' }}
           MARKET_REVIEW_COLOR_SCHEME: ${{ vars.MARKET_REVIEW_COLOR_SCHEME || secrets.MARKET_REVIEW_COLOR_SCHEME || 'green_up' }}
           
